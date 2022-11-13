@@ -12,6 +12,11 @@ body .container {
   height: 100%;
   max-width: 375px;
 }
+@media only screen and (min-width: 1200px) {
+  body .container {
+    max-width: 100%;
+  }
+}
 body .container header {
   background-color: hsl(180deg, 29%, 50%);
   background-image: url(../images/bg-header-mobile.svg);
@@ -19,6 +24,13 @@ body .container header {
   height: 156px;
   position: relative;
   width: 100%;
+}
+@media only screen and (min-width: 1200px) {
+  body .container header {
+    background-color: hsl(180deg, 29%, 50%);
+    background-image: url(../images/bg-header-desktop.svg);
+    background-repeat: no-repeat;
+  }
 }
 body .container header .filter {
   display: flex;
@@ -41,6 +53,25 @@ body .container header .filter {
 body .container header .filter .filter-input {
   margin-bottom: 20px;
 }
+body .container header .filter .filter-input::-moz-placeholder {
+  padding-left: 0.5em;
+}
+body .container header .filter .filter-input:-ms-input-placeholder {
+  padding-left: 0.5em;
+}
+body .container header .filter .filter-input::placeholder {
+  padding-left: 0.5em;
+}
+@media only screen and (min-width: 1200px) {
+  body .container header .filter .filter-input {
+    border: 1px solid hsl(180deg, 29%, 50%);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: inherit;
+    height: 30px;
+    width: 25%;
+  }
+}
 body .container header .filter .wrapper-filter {
   display: flex;
   justify-content: space-between;
@@ -56,7 +87,7 @@ body .container header .filter .wrapper-filter .filter-item span {
   border-radius: 5px 0 0 5px;
   color: hsl(180deg, 29%, 50%);
   font-weight: 700;
-  padding: 0.25em;
+  padding: 0.33em 0.625em;
 }
 body .container header .filter .wrapper-filter .filter-item img {
   background-color: hsl(180deg, 29%, 50%);
@@ -96,60 +127,85 @@ body .container main .item-job:hover, body .container main .item-job:focus {
   border-left: 5px solid hsl(180deg, 29%, 50%);
   transform: translateY(-2px);
 }
+@media only screen and (min-width: 1200px) {
+  body .container main .item-job {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3em;
+  }
+}
 body .container main .item-job img {
   position: absolute;
   top: -25px;
   width: 50px;
 }
-body .container main .item-job div {
+@media only screen and (min-width: 1200px) {
+  body .container main .item-job img {
+    position: unset;
+    justify-items: center;
+    width: 90px;
+  }
+}
+body .container main .item-job .left-side div {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-top: 1.5em;
 }
-body .container main .item-job div span {
+body .container main .item-job .left-side div span {
   border-radius: 10px;
   color: white;
   margin-right: 0.5em;
   padding: 0.3em 0.5em;
 }
-body .container main .item-job div .company-name {
+body .container main .item-job .left-side div .company-name {
   color: hsl(180deg, 29%, 50%);
   font-size: 1em;
   font-weight: 700;
   margin-right: 1em;
 }
-body .container main .item-job div .new {
+body .container main .item-job .left-side div .new {
   background-color: hsl(180deg, 29%, 50%);
 }
-body .container main .item-job div .featured {
+body .container main .item-job .left-side div .featured {
   background-color: black;
 }
-body .container main .item-job .position {
+body .container main .item-job .left-side .position {
+  font-size: 1.5em;
   font-weight: 700;
   margin-top: 1em;
 }
-body .container main .item-job .tags {
+body .container main .item-job .left-side .position:hover, body .container main .item-job .left-side .position:focus {
+  color: hsl(180deg, 29%, 50%);
+}
+body .container main .item-job .left-side .tags {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   border-bottom: 1px solid rgb(173, 170, 170);
+  margin-top: 1em;
   padding-bottom: 1em;
 }
-body .container main .item-job .tags span {
+@media only screen and (min-width: 1200px) {
+  body .container main .item-job .left-side .tags {
+    border: none;
+  }
+}
+body .container main .item-job .left-side .tags span {
   color: hsl(180deg, 8%, 52%);
 }
-body .container main .item-job .tags span::after {
+body .container main .item-job .left-side .tags span::after {
   content: "";
 }
-body .container main .item-job .langs-tools {
+body .container main .item-job .right-side .langs-tools {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 }
-body .container main .item-job .langs-tools span {
+body .container main .item-job .right-side .langs-tools span {
   background-color: hsl(180deg, 52%, 96%);
   border-radius: 5px;
   color: hsl(180deg, 29%, 50%);

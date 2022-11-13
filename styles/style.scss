@@ -5,16 +5,20 @@ body {
 	font-family: "League Spartan", sans-serif;
 	font-size: 15px;
 
-    height: 100vh;
-    width: 100vw;
+	height: 100vh;
+	width: 100vw;
 
 	.container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 
-        height: 100%;
+		height: 100%;
 		max-width: 375px;
+
+		@media only screen and (min-width: 1200px) {
+			max-width: 100%;
+		}
 
 		header {
 			background-color: $desaturated-dark-cyan;
@@ -23,6 +27,12 @@ body {
 			height: 156px;
 			position: relative;
 			width: 100%;
+
+			@media only screen and (min-width: 1200px) {
+				background-color: $desaturated-dark-cyan;
+				background-image: url(../images/bg-header-desktop.svg);
+				background-repeat: no-repeat;
+			}
 
 			.filter {
 				display: flex;
@@ -46,6 +56,35 @@ body {
 
 				.filter-input {
 					margin-bottom: 20px;
+
+					&::-webkit-input-placeholder {
+						padding-left: 0.5em;
+					}
+
+					&::-moz-placeholder {
+						padding-left: 0.5em;
+					}
+
+					&:-ms-input-placeholder {
+						padding-left: 0.5em;
+					}
+
+					&::-ms-input-placeholder {
+						padding-left: 0.5em;
+					}
+
+					&::placeholder {
+						padding-left: 0.5em;
+					}
+
+					@media only screen and (min-width: 1200px) {
+						border: 1px solid $desaturated-dark-cyan;
+						border-radius: 10px;
+						font-family: inherit;
+						font-size: inherit;
+						height: 30px;
+						width: 25%;
+					}
 				}
 
 				.wrapper-filter {
@@ -63,7 +102,7 @@ body {
 							border-radius: 5px 0 0 5px;
 							color: $desaturated-dark-cyan;
 							font-weight: 700;
-							padding: 0.25em;
+							padding: 0.33em 0.625em;
 						}
 
 						img {
@@ -115,78 +154,107 @@ body {
 					transform: translateY(-2px);
 				}
 
+				@media only screen and (min-width: 1200px) {
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 3em;
+				}
+
 				img {
 					position: absolute;
 					top: -25px;
 
 					width: 50px;
+
+					@media only screen and (min-width: 1200px) {
+						position: unset;
+
+						justify-items: center;
+						width: 90px;
+					}
 				}
 
-				div {
-					display: flex;
-					justify-content: flex-start;
-					align-items: center;
+				.left-side {
+					div {
+						display: flex;
+						justify-content: flex-start;
+						align-items: center;
 
-					margin-top: 1.5em;
+						margin-top: 1.5em;
 
-					span {
-						border-radius: 10px;
-						color: white;
-						margin-right: 0.5em;
-						padding: 0.3em 0.5em;
+						span {
+							border-radius: 10px;
+							color: white;
+							margin-right: 0.5em;
+							padding: 0.3em 0.5em;
+						}
+
+						.company-name {
+							color: $desaturated-dark-cyan;
+							font-size: 1em;
+							font-weight: 700;
+							margin-right: 1em;
+						}
+
+						.new {
+							background-color: $desaturated-dark-cyan;
+						}
+
+						.featured {
+							background-color: black;
+						}
 					}
 
-					.company-name {
-						color: $desaturated-dark-cyan;
-						font-size: 1em;
+					.position {
+						font-size: 1.5em;
 						font-weight: 700;
-						margin-right: 1em;
+						margin-top: 1em;
+
+						&:hover,
+						&:focus {
+							color: $desaturated-dark-cyan;
+						}
 					}
 
-					.new {
-						background-color: $desaturated-dark-cyan;
-					}
+					.tags {
+						display: flex;
+						justify-content: flex-start;
+						align-items: center;
+						flex-wrap: wrap;
 
-					.featured {
-						background-color: black;
-					}
-				}
+						border-bottom: 1px solid rgb(173, 170, 170);
+						margin-top: 1em;
+						padding-bottom: 1em;
 
-				.position {
-					font-weight: 700;
-					margin-top: 1em;
-				}
+						@media only screen and (min-width: 1200px) {
+							border: none;
+						}
 
-				.tags {
-					display: flex;
-					justify-content: flex-start;
-					align-items: center;
-					flex-wrap: wrap;
+						span {
+							color: $dark-grayish-cyan;
 
-					border-bottom: 1px solid rgb(173, 170, 170);
-					padding-bottom: 1em;
-
-					span {
-						color: $dark-grayish-cyan;
-
-						&::after {
-							content: "";
+							&::after {
+								content: "";
+							}
 						}
 					}
 				}
 
-				.langs-tools {
-					display: flex;
-					justify-content: flex-start;
-					align-items: center;
-					flex-wrap: wrap;
+				.right-side {
+					.langs-tools {
+						display: flex;
+						justify-content: flex-start;
+						align-items: center;
+						flex-wrap: wrap;
 
-					span {
-						background-color: $background;
-						border-radius: 5px;
-						color: $desaturated-dark-cyan;
-						font-weight: 700;
-						padding: 0.33em 0.625em;
+						span {
+							background-color: $background;
+							border-radius: 5px;
+							color: $desaturated-dark-cyan;
+							font-weight: 700;
+							padding: 0.33em 0.625em;
+						}
 					}
 				}
 			}
